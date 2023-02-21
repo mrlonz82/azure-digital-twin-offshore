@@ -1,0 +1,37 @@
+{
+    "@id": "dtmi:com:example:OffshoreWindTurbine;1",
+    "@type": "Interface",
+    "displayName": "Offshore Wind Turbine",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "turbineId",
+            "displayName": "Turbine ID",
+            "schema": "string"
+        },
+        {
+            "@type": "Property",
+            "name": "powerOutput",
+            "displayName": "Power Output",
+            "schema": "double"
+        },
+        {
+            "@type": "Property",
+            "name": "theoreticalPowerCurve",
+            "displayName": "Theoretical Power Curve",
+            "schema": "double"
+        },
+        {
+            "@type": "Property",
+            "name": "windDirection",
+            "displayName": "Wind Direction",
+            "schema": "double"
+        },
+        {
+            "@type": "Telemetry",
+            "name": "dateTime",
+            "displayName": "Date/Time",
+            "schema": "string"
+        }
+    ]
+}

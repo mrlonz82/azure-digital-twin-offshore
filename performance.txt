@@ -1,0 +1,90 @@
+---------------LSTM Model Performance for Wind Speed Q1---------------
+Wind Speed Q1 Test MSE: 294.41
+Wind Speed Q1 Test MAE: 12.59
+Wind Speed Q1 Test RMSE: 17.16
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q2---------------
+Wind Speed Q2 Test MSE: 455.00
+Wind Speed Q2 Test MAE: 14.10
+Wind Speed Q2 Test RMSE: 21.33
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q3---------------
+Wind Speed Q3 Test MSE: 253.98
+Wind Speed Q3 Test MAE: 11.44
+Wind Speed Q3 Test RMSE: 15.94
+-----------------------------------------------------------------
+---------------TCM Model Performance for Wind Speed Q1---------------
+Wind Speed Q1 MSE: 0.0008848590867545002
+Wind Speed Q1 MAE: 0.022155165925915186
+Wind Speed Q1 RMSE: 0.02974658109353914
+----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q4---------------
+Wind Speed Q4 Test MSE: 274.63
+Wind Speed Q4 Test MAE: 12.25
+Wind Speed Q4 Test RMSE: 16.57
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind direction Q1---------------
+Wind direction Q1 Test MSE: 103839944.88
+Wind direction Q1 Test MAE: 3473.43
+Wind direction Q1 Test RMSE: 10190.19
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind direction Q2---------------
+Wind direction Q2 Test MSE: 144598040.11
+Wind direction Q2 Test MAE: 4102.70
+Wind direction Q2 Test RMSE: 12024.89
+-----------------------------------------------------------------
+---------------TCM Model Performance for Wind Speed Q2---------------
+Wind Speed Q2 MSE: 0.0010605937587176882
+Wind Speed Q2 MAE: 0.021044060524875362
+Wind Speed Q2 RMSE: 0.03256675849263614
+----------------------------------------------------------------
+---------------LSTM Model Performance for Wind direction Q3---------------
+Wind direction Q3 Test MSE: 61770904.38
+Wind direction Q3 Test MAE: 2467.38
+Wind direction Q3 Test RMSE: 7859.45
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q1---------------
+Wind Speed Q1 Test MSE: 284.40
+Wind Speed Q1 Test MAE: 12.25
+Wind Speed Q1 Test RMSE: 16.86
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q2---------------
+Wind Speed Q2 Test MSE: 486.54
+Wind Speed Q2 Test MAE: 14.78
+Wind Speed Q2 Test RMSE: 22.06
+-----------------------------------------------------------------
+---------------TCM Model Performance for Wind Speed Q1---------------
+Wind Speed Q1 MSE: 0.0007630058589321376
+Wind Speed Q1 MAE: 0.019888626621491264
+Wind Speed Q1 RMSE: 0.02762256068745506
+----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q3---------------
+Wind Speed Q3 Test MSE: 256.18
+Wind Speed Q3 Test MAE: 11.51
+Wind Speed Q3 Test RMSE: 16.01
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind Speed Q4---------------
+Wind Speed Q4 Test MSE: 272.25
+Wind Speed Q4 Test MAE: 12.15
+Wind Speed Q4 Test RMSE: 16.50
+-----------------------------------------------------------------
+---------------TCM Model Performance for Wind Speed Q2---------------
+Wind Speed Q2 MSE: 0.0010139308563224434
+Wind Speed Q2 MAE: 0.02062352999840105
+Wind Speed Q2 RMSE: 0.03184228095351279
+----------------------------------------------------------------
+---------------LSTM Model Performance for Wind direction Q1---------------
+Wind direction Q1 Test MSE: 107284123.86
+Wind direction Q1 Test MAE: 3710.76
+Wind direction Q1 Test RMSE: 10357.80
+-----------------------------------------------------------------
+---------------LSTM Model Performance for Wind direction Q2---------------
+Wind direction Q2 Test MSE: 134555917.77
+Wind direction Q2 Test MAE: 4108.75
+Wind direction Q2 Test RMSE: 11599.82
+-----------------------------------------------------------------
+---------------TCM Model Performance for Wind Speed Q3---------------
+Wind Speed Q3 MSE: 0.0014296284913009774
+Wind Speed Q3 MAE: 0.028295529679589235
+Wind Speed Q3 RMSE: 0.03781042834061758
+----------------------------------------------------------------
