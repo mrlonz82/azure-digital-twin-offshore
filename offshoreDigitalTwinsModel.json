@@ -1,0 +1,26 @@
+{
+    "@id": "dtmi:com:windFarm:OffshoreWindFarm;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2",
+    "displayName": "Offshore Wind Turbine",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "windDirection",
+            "displayName": "Wind Direction",
+            "schema": "double"
+        },
+        {
+            "@type": "Property",
+            "name": "windSpeed",
+            "displayName": "Wind Speed",
+            "schema": "double"
+        },
+        {
+            "@type": "Property",
+            "name": "datetime",
+            "displayName": "Date/Time",
+            "schema": "dateTime"
+        }
+    ]
+}

@@ -54,6 +54,7 @@ def _plot_result(title: str, y_test, y_pred, path_to_save: str):
     plt.legend()
     plt.title(f"{title}")
     plt.savefig(f"plots/{path_to_save}/{title}.png")
+    plt.close()
 
 
 def train_and_predict(title: str, path_to_data: str, y_col: str, x_col: str, path_to_save: str):
@@ -88,13 +89,13 @@ def train_and_predict(title: str, path_to_data: str, y_col: str, x_col: str, pat
 
 
 # wind_speed
-# train_and_predict("Wind Speed Q1", "splits/Q1.csv", "wind speed", "wind speed", "lstm")
-# train_and_predict("Wind Speed Q2", "splits/Q2.csv", "wind speed", "wind speed", "lstm")
-# train_and_predict("Wind Speed Q3", "splits/Q3.csv", "wind speed", "wind speed", "lstm")
-# train_and_predict("Wind Speed Q4", "splits/Q4.csv", "wind speed", "wind speed", "lstm")
-#
-# # wind_direction
-# train_and_predict("Wind direction Q1", "splits/Q1.csv", "wind direction", "wind direction", "lstm")
-train_and_predict("Wind direction Q2", "splits/Q2.csv", "wind direction", "wind direction", "lstm")
-# train_and_predict("Wind direction Q3", "splits/Q3.csv", "wind direction", "wind direction", "lstm")
-# train_and_predict("Wind direction Q4", "splits/Q4.csv", "wind direction", "wind direction", "lstm")
+train_and_predict("Wind Speed Q1", "datasets/splits/Q1.csv", "wind speed", "wind speed", "lstm")
+train_and_predict("Wind Speed Q2", "datasets/splits/Q2.csv", "wind speed", "wind speed", "lstm")
+train_and_predict("Wind Speed Q3", "datasets/splits/Q3.csv", "wind speed", "wind speed", "lstm")
+train_and_predict("Wind Speed Q4", "datasets/splits/Q4.csv", "wind speed", "wind speed", "lstm")
+
+# wind_direction
+train_and_predict("Wind direction Q1", "datasets/splits/Q1.csv", "wind direction", "wind direction", "lstm")
+train_and_predict("Wind direction Q2", "datasets/splits/Q2.csv", "wind direction", "wind direction", "lstm")
+train_and_predict("Wind direction Q3", "datasets/splits/Q3.csv", "wind direction", "wind direction", "lstm")
+train_and_predict("Wind direction Q4", "datasets/splits/Q4.csv", "wind direction", "wind direction", "lstm")
