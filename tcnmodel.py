@@ -12,6 +12,7 @@ def train_and_predict(title: str, path_to_data: str, x_col, y_col, path_to_save:
     # Load the wind speed data
     data = pd.read_csv(path_to_data, parse_dates=[x_col], index_col=x_col)
     y_col_reshape = data[y_col].values.reshape(-1, 1)
+    dates = data.index
 
     # Perform data preprocessing
     scaler = MinMaxScaler()
@@ -73,8 +74,9 @@ def train_and_predict(title: str, path_to_data: str, x_col, y_col, path_to_save:
     print(f"{title} RMSE:", rmse)
 
     # Plot the predicted and true wind speed values
-    plt.plot(y_test, label=f'Actual {title}')
-    plt.plot(y_pred, label=f'Predicted {title}')
+    plt.plot(dates[window_size:], y_test, label=f'Actual {title}')
+    plt.plot(dates[window_size:], y_pred, label=f'Predicted {title}')
+
     plt.legend()
     plt.title(f"{title}")
     plt.savefig(f"plots/{path_to_save}/{title}.png")
@@ -84,13 +86,13 @@ def train_and_predict(title: str, path_to_data: str, x_col, y_col, path_to_save:
 
 
 # wind_speed
-train_and_predict("Wind Speed Q1", "datasets/splits/Q1.csv", "wind speed", "wind speed", "lstm")
-train_and_predict("Wind Speed Q2", "datasets/splits/Q2.csv", "wind speed", "wind speed", "lstm")
-train_and_predict("Wind Speed Q3", "datasets/splits/Q3.csv", "wind speed", "wind speed", "lstm")
-train_and_predict("Wind Speed Q4", "datasets/splits/Q4.csv", "wind speed", "wind speed", "lstm")
+train_and_predict("Wind Speed Q1", "datasets/splits/2007/Q1.csv", "date", "wind speed", "tcn")
+# train_and_predict("Wind Speed Q2", "datasets/splits/Q2.csv", "wind speed", "wind speed", "lstm")
+# train_and_predict("Wind Speed Q3", "datasets/splits/Q3.csv", "wind speed", "wind speed", "lstm")
+# train_and_predict("Wind Speed Q4", "datasets/splits/Q4.csv", "wind speed", "wind speed", "lstm")
 
 # wind_direction
-train_and_predict("Wind direction Q1", "datasets/splits/Q1.csv", "wind direction", "wind direction", "lstm")
-train_and_predict("Wind direction Q2", "datasets/splits/Q2.csv", "wind direction", "wind direction", "lstm")
-train_and_predict("Wind direction Q3", "datasets/splits/Q3.csv", "wind direction", "wind direction", "lstm")
-train_and_predict("Wind direction Q4", "datasets/splits/Q4.csv", "wind direction", "wind direction", "lstm")
+train_and_predict("Wind direction Q1", "datasets/splits/2007/Q1.csv", "date", "wind direction", "tcn")
+# train_and_predict("Wind direction Q2", "datasets/splits/Q2.csv", "wind direction", "wind direction", "lstm")
+# train_and_predict("Wind direction Q3", "datasets/splits/Q3.csv", "wind direction", "wind direction", "lstm")
+# train_and_predict("Wind direction Q4", "datasets/splits/Q4.csv", "wind direction", "wind direction", "lstm")
