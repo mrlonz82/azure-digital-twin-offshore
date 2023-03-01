@@ -10,9 +10,6 @@ from keras.layers import LSTM, Dense, Flatten
 
 
 def _create_model(model: str, X_train, y_train, window_size) -> Sequential | TCN:
-    num_epochs = 50
-    batch_size = 64
-
     # create LSTM model for  prediction
     if model == "lstm":
         model = Sequential()
@@ -27,10 +24,6 @@ def _create_model(model: str, X_train, y_train, window_size) -> Sequential | TCN
             Flatten(),
             Dense(1)
         ])
-        # Compile the model
-        model.compile(optimizer='adam', loss='mean_squared_error')
-        # Train the model
-        model.fit(X_train, y_train, epochs=num_epochs, batch_size=batch_size)
     return model
 
 
@@ -73,7 +66,7 @@ def _split_data_to_training_and_testing(model: str, data: pd.DataFrame, Y_col, X
     return X_train, X_test, y_train, y_test
 
 
-def _check_model_performance(title: str, y_test, y_pred):
+def _check_model_performance(model, title: str, y_test, y_pred):
     # calculate performance.txt metrics
     test_mse = mean_squared_error(y_test, y_pred)
     test_mae = mean_absolute_error(y_test, y_pred)
@@ -82,7 +75,7 @@ def _check_model_performance(title: str, y_test, y_pred):
     # Open a file in append mode
     with open("performance.txt", "a") as f:
         # Write some text to the file
-        f.write(f"---------------LSTM Model Performance for {title}---------------\n")
+        f.write(f"---------------{model} Model Performance for {title}---------------\n")
         f.write(f'{title} Test MSE: %.2f\n' % test_mse)
         f.write(f'{title} Test MAE: %.2f\n' % test_mae)
         f.write(f'{title} Test RMSE: %.2f\n' % test_rmse)
@@ -93,7 +86,7 @@ def _check_model_performance(title: str, y_test, y_pred):
     print(f'{title} Test RMSE: %.2f' % test_rmse)
 
 
-def _plot_result(title: str, y_test, y_pred, path_to_save: str, test_data: pd.DataFrame):
+def _plot_result(title: str, y_test, y_pred, path_to_save: str, test_data: pd.DataFrame, label: str):
     # plot
     fig = plt.figure(figsize=(10, 5))
     dates = test_data.index
@@ -107,7 +100,7 @@ def _plot_result(title: str, y_test, y_pred, path_to_save: str, test_data: pd.Da
     plt.legend()
     plt.title(f"{title}")
     plt.xlabel("Date")
-    plt.ylabel("Wind Speed")
+    plt.ylabel(label)
     plt.savefig(f"plots/{path_to_save}/{title}.png")
     plt.close()
 
@@ -119,6 +112,8 @@ def train_and_predict(title: str, model: str, path_to_data: str, y_col: str, x_c
     df_list = np.array_split(df, 5)
     count = 0
     tittle_temp = title
+    num_epochs = 50
+    batch_size = 64
     # Define the sliding window size
     window_size = 24
     # iterate over each part to train and predict
@@ -130,17 +125,15 @@ def train_and_predict(title: str, model: str, path_to_data: str, y_col: str, x_c
             scaler = MinMaxScaler()
         X_train, X_test, y_train, y_test = _split_data_to_training_and_testing(model, data, y_col, x_col,
                                                                                window_size, scaler)
-        test_data = data.iloc[-len(y_test):]  # get the original test data for plotting
+        test_data = data.iloc[-len(y_test):]
 
         # create LSTM model for wind speed prediction
         model = _create_model(model, X_train, y_train, window_size)
-        # model.add(LSTM(units=50, return_sequences=True, input_shape=(X_train.shape[1], 1)))
-        # model.add(LSTM(units=50))
-        # model.add(Dense(units=1))
-        # model.compile(optimizer='adam', loss='mean_squared_error')
 
-        # train
-        model.fit(X_train, y_train, epochs=50, batch_size=32)
+        # Compile the model
+        model.compile(optimizer='adam', loss='mean_squared_error')
+        # Train the model
+        model.fit(X_train, y_train, epochs=num_epochs, batch_size=batch_size)
 
         # make predictions on test data
         y_pred = model.predict(X_test)
@@ -150,34 +143,34 @@ def train_and_predict(title: str, model: str, path_to_data: str, y_col: str, x_c
         y_pred = scaler.inverse_transform(y_pred.reshape(-1, 1))
         count += 1
         title = f"{tittle_temp} - Part {count}"
-        _check_model_performance(title, y_test, y_pred)
-        _plot_result(title, y_test, y_pred, path_to_save, test_data)
+        _check_model_performance(path_to_save, title, y_test, y_pred)
+        _plot_result(title, y_test, y_pred, path_to_save, test_data, x_col)
 
 
-# wind_speed tcn
-train_and_predict("Wind Speed Q1", "tcn", "datasets/splits/2007/Q1.csv", "wind speed", "wind speed", "tcn")
-train_and_predict("Wind Speed Q2", "tcn", "datasets/splits/2010/Q2.csv", "wind speed", "wind speed", "tcn")
-train_and_predict("Wind Speed Q3", "tcn", "datasets/splits/2010/Q3.csv", "wind speed", "wind speed", "tcn")
-train_and_predict("Wind Speed Q4", "tcn", "datasets/splits/2010/Q4.csv", "wind speed", "wind speed", "tcn")
+# # wind_speed tcn
+# train_and_predict("Wind Speed Q1", "tcn", "datasets/splits/2007/Q1.csv", "wind speed", "wind speed", "tcn")
+# train_and_predict("Wind Speed Q2", "tcn", "datasets/splits/2010/Q2.csv", "wind speed", "wind speed", "tcn")
+# train_and_predict("Wind Speed Q3", "tcn", "datasets/splits/2010/Q3.csv", "wind speed", "wind speed", "tcn")
+# train_and_predict("Wind Speed Q4", "tcn", "datasets/splits/2010/Q4.csv", "wind speed", "wind speed", "tcn")
 
 # wind_direction tcn
-train_and_predict("Wind direction Q1", "tcn", "datasets/splits/2010/Q1csv", "wind direction", "wind direction", "tcn")
+train_and_predict("Wind direction Q1", "tcn", "datasets/splits/2010/Q1.csv", "wind direction", "wind direction", "tcn")
 train_and_predict("Wind direction Q2", "tcn", "datasets/splits/2010/Q2.csv", "wind direction", "wind direction", "tcn")
 train_and_predict("Wind direction Q3", "tcn", "datasets/splits/2010/Q3.csv", "wind direction", "wind direction", "tcn")
 train_and_predict("Wind direction Q4", "tcn", "datasets/splits/2010/Q4.csv", "wind direction", "wind direction", "tcn")
 
 # wind_speed lstm
-train_and_predict("Wind Speed Q1", "lstm", "datasets/splits/2007/Q1.csv", "wind speed", "wind speed", "lstm")
-train_and_predict("Wind Speed Q2", "lstm", "datasets/splits/2010/Q2.csv", "wind speed", "wind speed", "lstm")
-train_and_predict("Wind Speed Q3", "lstm", "datasets/splits/2010/Q3.csv", "wind speed", "wind speed", "lstm")
-train_and_predict("Wind Speed Q4", "lstm", "datasets/splits/2010/Q4.csv", "wind speed", "wind speed", "lstm")
-
-# wind_direction lstm
-train_and_predict("Wind direction Q1", "lstm", "datasets/splits/2010/Q1.csv", "wind direction", "wind direction",
-                  "lstm")
-train_and_predict("Wind direction Q2", "lstm", "datasets/splits/2010/Q2.csv", "wind direction", "wind direction",
-                  "lstm")
-train_and_predict("Wind direction Q3", "lstm", "datasets/splits/2010/Q3.csv", "wind direction", "wind direction",
-                  "lstm")
-train_and_predict("Wind direction Q4", "lstm", "datasets/splits/2010/Q4.csv", "wind direction", "wind direction",
-                  "lstm")
+# train_and_predict("Wind Speed Q1", "lstm", "datasets/splits/2007/Q1.csv", "wind speed", "wind speed", "lstm")
+# train_and_predict("Wind Speed Q2", "lstm", "datasets/splits/2010/Q2.csv", "wind speed", "wind speed", "lstm")
+# train_and_predict("Wind Speed Q3", "lstm", "datasets/splits/2010/Q3.csv", "wind speed", "wind speed", "lstm")
+# train_and_predict("Wind Speed Q4", "lstm", "datasets/splits/2010/Q4.csv", "wind speed", "wind speed", "lstm")
+#
+# # wind_direction lstm
+# train_and_predict("Wind direction Q1", "lstm", "datasets/splits/2010/Q1.csv", "wind direction", "wind direction",
+#                   "lstm")
+# train_and_predict("Wind direction Q2", "lstm", "datasets/splits/2010/Q2.csv", "wind direction", "wind direction",
+#                   "lstm")
+# train_and_predict("Wind direction Q3", "lstm", "datasets/splits/2010/Q3.csv", "wind direction", "wind direction",
+#                  "lstm")
+# train_and_predict("Wind direction Q4", "lstm", "datasets/splits/2010/Q4.csv", "wind direction", "wind direction",
+ #                 "lstm")
