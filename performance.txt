@@ -324,3 +324,78 @@ Wind Speed Q3 - Part 3 Test MSE: 0.75
 Wind Speed Q3 - Part 3 Test MAE: 0.64
 Wind Speed Q3 - Part 3 Test RMSE: 0.87
 -----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q3 - Part 3---------------
+Wind direction Q3 - Part 3 Test MSE: 309.03
+Wind direction Q3 - Part 3 Test MAE: 5.41
+Wind direction Q3 - Part 3 Test RMSE: 17.58
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q3 - Part 4---------------
+Wind Speed Q3 - Part 4 Test MSE: 4.00
+Wind Speed Q3 - Part 4 Test MAE: 1.59
+Wind Speed Q3 - Part 4 Test RMSE: 2.00
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q3 - Part 4---------------
+Wind direction Q3 - Part 4 Test MSE: 156.72
+Wind direction Q3 - Part 4 Test MAE: 10.64
+Wind direction Q3 - Part 4 Test RMSE: 12.52
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q3 - Part 5---------------
+Wind Speed Q3 - Part 5 Test MSE: 2.88
+Wind Speed Q3 - Part 5 Test MAE: 1.30
+Wind Speed Q3 - Part 5 Test RMSE: 1.70
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q3 - Part 5---------------
+Wind direction Q3 - Part 5 Test MSE: 2959.17
+Wind direction Q3 - Part 5 Test MAE: 26.23
+Wind direction Q3 - Part 5 Test RMSE: 54.40
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q4 - Part 1---------------
+Wind Speed Q4 - Part 1 Test MSE: 1.53
+Wind Speed Q4 - Part 1 Test MAE: 0.99
+Wind Speed Q4 - Part 1 Test RMSE: 1.24
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q4 - Part 1---------------
+Wind direction Q4 - Part 1 Test MSE: 260.66
+Wind direction Q4 - Part 1 Test MAE: 13.15
+Wind direction Q4 - Part 1 Test RMSE: 16.14
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q4 - Part 2---------------
+Wind Speed Q4 - Part 2 Test MSE: 1.55
+Wind Speed Q4 - Part 2 Test MAE: 0.97
+Wind Speed Q4 - Part 2 Test RMSE: 1.25
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q4 - Part 2---------------
+Wind direction Q4 - Part 2 Test MSE: 15652.26
+Wind direction Q4 - Part 2 Test MAE: 75.68
+Wind direction Q4 - Part 2 Test RMSE: 125.11
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q4 - Part 3---------------
+Wind Speed Q4 - Part 3 Test MSE: 0.68
+Wind Speed Q4 - Part 3 Test MAE: 0.66
+Wind Speed Q4 - Part 3 Test RMSE: 0.82
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q4 - Part 3---------------
+Wind direction Q4 - Part 3 Test MSE: 121.83
+Wind direction Q4 - Part 3 Test MAE: 10.87
+Wind direction Q4 - Part 3 Test RMSE: 11.04
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q4 - Part 4---------------
+Wind Speed Q4 - Part 4 Test MSE: 0.44
+Wind Speed Q4 - Part 4 Test MAE: 0.52
+Wind Speed Q4 - Part 4 Test RMSE: 0.66
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q4 - Part 4---------------
+Wind direction Q4 - Part 4 Test MSE: 690.85
+Wind direction Q4 - Part 4 Test MAE: 25.91
+Wind direction Q4 - Part 4 Test RMSE: 26.28
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind Speed Q4 - Part 5---------------
+Wind Speed Q4 - Part 5 Test MSE: 3.46
+Wind Speed Q4 - Part 5 Test MAE: 1.69
+Wind Speed Q4 - Part 5 Test RMSE: 1.86
+-----------------------------------------------------------------
+---------------tcn Model Performance for Wind direction Q4 - Part 5---------------
+Wind direction Q4 - Part 5 Test MSE: 1968.38
+Wind direction Q4 - Part 5 Test MAE: 43.91
+Wind direction Q4 - Part 5 Test RMSE: 44.37
+-----------------------------------------------------------------
